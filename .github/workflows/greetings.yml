@@ -44,21 +44,21 @@ jobs:
       - name: 'start-service'
         run: | 
           echo "start-service. Done!!"
-  stop-service:
-    if: ${{ github.event.inputs.actions }} == 'stop-service' 
-    steps:
-      - name: 'stop service'
-        run: |
-          echo "stop service. Done!!"
-  start-rds:
-    if: ${{ github.event.inputs.actions }} == 'start-rds'
-    steps:
-      - name: 'start rds'
-        run: |
-          echo " rds start!!"
-  stop-rds:
-    if: ${{ github.event.inputs.actions }} == 'stop-rds'
-    steps:
-      - name: 'stop rds'
-        run: |
-          echo " rds stop!!"
+#   stop-service:
+#     if: ${{ github.event.inputs.actions }} == 'stop-service' 
+#     steps:
+#       - name: 'stop service'
+#         run: |
+#           echo "stop service. Done!!"
+#   start-rds:
+#     if: ${{ github.event.inputs.actions }} == 'start-rds'
+#     steps:
+#       - name: 'start rds'
+#         run: |
+#           echo " rds start!!"
+#   stop-rds:
+#     if: ${{ github.event.inputs.actions }} == 'stop-rds'
+#     steps:
+#       - name: 'stop rds'
+#         run: |
+#           echo " rds stop!!"
