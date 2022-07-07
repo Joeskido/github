@@ -1,0 +1,64 @@
+# create GitHub action to start and stop lower environments
+# 
+name: "Start/Stop service and rds"
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_env:
+        required: true
+        default: "infra-test"
+        description: |
+          🛑 DO NOT CHANGE THE DROPDOWN ABOVE FOR THE WORKFLOW. KEEP IT ON "main" BRANCH.
+          --------------------------------------
+          ⬇️ Environment.
+        type: choice
+        options:
+          # - breakfix
+          # - cps-preview
+          - infra-test
+          # - long
+          # - performance
+          # - stage
+          # - test
+          # - training
+          # - trn2
+          # - uat
+      actions:
+        required: true
+        default: "stop-service"
+        description: |
+          ⬇️ action.
+        type: choice
+        options:
+          - start-service
+          - stop-service
+          - start-rds
+          - stop-rds
+  schedule:
+    - cron: '0 17 * * 1'
+jobs:
+  start-service:
+    if: ${{ github.event.inputs.actions }} == 'start-service'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'start-service'
+        run: | 
+          echo "start-service. Done!!"
+  stop-service:
+    if: ${{ github.event.inputs.actions }} == 'stop-service' 
+    steps:
+      - name: 'stop service'
+        run: |
+          echo "stop service. Done!!"
+  start-rds:
+    if: ${{ github.event.inputs.actions }} == 'start-rds'
+    steps:
+      - name: 'start rds'
+        run: |
+          echo " rds start!!"
+  stop-rds:
+    if: ${{ github.event.inputs.actions }} == 'stop-rds'
+    steps:
+      - name: 'stop rds'
+        run: |
+          echo " rds stop!!"
