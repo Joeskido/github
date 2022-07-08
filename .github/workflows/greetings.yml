@@ -38,28 +38,28 @@ on:
     - cron: '0 17 * * 1'
 jobs:
   start-service:
-    if: ${{ github.event.inputs.actions }} == 'start-service'
+    if: github.event.inputs.actions == 'start-service'
     runs-on: ubuntu-latest
     steps:
       - name: 'start-service'
         run: | 
           echo "start-service. Done!!"
   stop-service:
-    if: ${{ github.event.inputs.actions }} == 'stop-service' 
+    if: github.event.inputs.actions == 'stop-service' 
     runs-on: ubuntu-latest
     steps:
       - name: 'stop service'
         run: |
           echo "stop service. Done!!"
   start-rds:
-    if: ${{ github.event.inputs.actions }} == 'start-rds'
+    if: github.event.inputs.actions == 'start-rds'
     runs-on: ubuntu-latest
     steps:
       - name: 'start rds'
         run: |
           echo " rds start!!"
   stop-rds:
-    if: ${{ github.event.inputs.actions }} == 'stop-rds'
+    if: github.event.inputs.actions == 'stop-rds'
     runs-on: ubuntu-latest
     steps:
       - name: 'stop rds'
